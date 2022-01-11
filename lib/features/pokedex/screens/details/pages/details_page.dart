@@ -10,10 +10,14 @@ class DetailPage extends StatelessWidget {
     required this.pokemon,
     required this.list,
     required this.onBack,
+    required this.controller,
+    required this.onChangedPokemon,
   }) : super(key: key);
   final Pokemon pokemon;
   final List<Pokemon> list;
   final VoidCallback onBack;
+  final PageController controller;
+  final ValueChanged<Pokemon> onChangedPokemon;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +30,8 @@ class DetailPage extends StatelessWidget {
         DetailListWidget(
           pokemon: pokemon,
           list: list,
+          controller: controller,
+          onChangedPokemon: onChangedPokemon,
         ),
       ],
     ));
